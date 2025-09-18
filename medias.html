@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Merci — Concours Sephora Canada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Merci — Concours Sephora Canada" />
+  <meta property="og:description" content="Merci pour votre participation au concours Sephora Canada. Restez à l'affût des annonces de gagnants." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --black:#000;
+      --white:#fff;
+      --ink:#111;
+      --muted:#666;
+      --border:#e9e9e9;
+      --sephora-red:#e4002b;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--white);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    /* Sephora stripes */
+    .stripe{
+      height:14px; width:100%;
+      background-image:repeating-linear-gradient(90deg, var(--black) 0 60px, var(--white) 60px 120px);
+    }
+
+    /* Header */
+    .topbar{
+      display:flex; align-items:center; justify-content:center;
+      padding:18px 20px; border-bottom:1px solid var(--border);
+      background:var(--white);
+    }
+    .topbar img{ height:42px; width:auto; display:block }
+
+    /* Hero (thank you) */
+    .hero{
+      max-width:1100px; margin:36px auto 18px; padding:0 20px; text-align:center;
+    }
+    .hero h1{
+      font-family:"Playfair Display", Georgia, serif; font-weight:700;
+      font-size:clamp(28px,5vw,46px); line-height:1.1; margin:0 0 10px; color:var(--black);
+    }
+    .hero p{
+      margin:0 auto; max-width:800px; color:#333; font-size:clamp(15px,2.6vw,18px);
+    }
+
+    /* Confetti strip (subtle) */
+    .confetti{
+      width:100%; height:8px; margin:22px 0 0; background:
+        linear-gradient(90deg, #0002 0 10%, transparent 10% 20%, #0002 20% 30%, transparent 30% 40%, #0002 40% 50%,
+                                transparent 50% 60%, #0002 60% 70%, transparent 70% 80%, #0002 80% 90%, transparent 90% 100%);
+    }
+
+    /* Card */
+    .card{
+      max-width:920px; margin:22px auto 34px; padding:22px 22px;
+      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(0,0,0,.06);
+    }
+    .card h2{ margin:0 0 10px; font-size:1.25rem }
+    .checklist{ margin:0; padding-left:18px; color:#333 }
+    .checklist li{ margin:6px 0 }
+
+    /* Sponsors / Organizer */
+    .sponsors{
+      max-width:1100px; margin:10px auto 0; padding:10px 20px; color:#444; text-align:center;
+    }
+    .sponsor-logos{ display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:10px }
+    .sponsor-logos img{ height:46px; width:auto; filter:grayscale(100%); }
+
+    /* CTAs */
+    .cta-row{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px;
+    }
+    .btn{
+      border:none; border-radius:9999px; padding:12px 20px; font-weight:700; cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 8px 18px rgba(0,0,0,.12) }
+    .btn-primary{ background:var(--black); color:#fff; border:1px solid var(--black) }
+    .btn-secondary{ background:#fff; color:#111; border:1px solid #cfcfcf }
+    .btn-link{ background:transparent; color:var(--ink); border:1px dashed #d6d6d6 }
+
+    footer{
+      text-align:center; color:#666; font-size:.9rem; padding:24px 16px 36px;
+    }
+
+    @media (max-width:520px){
+      .hero h1{ font-size:clamp(26px,7vw,36px) }
+    }
+  </style>
+</head>
+<body>
+  <span class="stripe" aria-hidden="true"></span>
+  <header class="topbar" role="banner">
+    <a href="https://sephora.com" target="_blank" rel="noopener">
+      <img src="sephora.png" alt="Sephora" />
+    </a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="thanks-title">
+      <h1 id="thanks-title">Merci pour votre participation 🎉</h1>
+      <p>Votre inscription au <strong>Concours Sephora Canada</strong> a bien été enregistrée. Les gagnants seront contactés par e‑mail selon les modalités du règlement. Bonne chance&nbsp;!</p>
+      <div class="confetti" aria-hidden="true"></div>
+    </section>
+
+    <section class="card" aria-labelledby="next-steps">
+      <h2 id="next-steps">Prochaine étape</h2>
+      <ul class="checklist">
+        <li>Vérifiez votre boîte e‑mail (et l’onglet spam) pour la confirmation.</li>
+        <li>Ajoutez <em>sephora.com</em> à vos favoris pour découvrir nos nouveautés.</li>
+        <li>Partagez le concours avec vos amis.</li>
+      </ul>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="index.html">Retour à l’accueil</a>
+        <a class="btn btn-secondary" href="https://sephora.com" target="_blank" rel="noopener">Visiter sephora.com</a>
+        <button class="btn btn-link" onclick="navigator.clipboard.writeText(window.location.origin + '/index.html').then(()=>alert('Lien copié !')).catch(()=>alert('Impossible de copier le lien.'));">Copier le lien du concours</button>
+      </div>
+    </section>
+
+    <section class="sponsors" aria-label="Organisateur">
+      <p>Ce concours est organisé par <strong><a href="https://sephora.com" target="_blank" rel="noopener">Sephora Canada</a></strong>.</p>
+      <div class="sponsor-logos">
+        <a href="https://sephora.com" target="_blank" rel="noopener">
+          <img src="sephora.png" alt="Logo Sephora Canada" />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© Sephora Canada — Tous droits réservés.</footer>
+</body>
+</html>
